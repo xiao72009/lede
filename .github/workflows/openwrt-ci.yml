@@ -3,7 +3,7 @@
 # 
 # Copyright (C) 2019 P3TERX <https://p3terx.com>
 # Copyright (C) 2020 KFERMercer <KFER.Mercer@gmail.com>
-#  Copyright (C) 2020 KFERMercer <KFER.Mercer@gmail.com>
+# 
 # <https://github.com/KFERMercer/OpenWrt-CI>
 #
 
@@ -71,21 +71,17 @@ jobs:
           #
           # 在 cat >> .config <<EOF 到 EOF 之间粘贴你的编译配置, 需注意缩进关系
           # 例如:
-           cat >> .config <<EOF
-           CONFIG_TARGET_ramips=y
-           CONFIG_TARGET_ramips_mt7621=y
-           CONFIG_TARGET_ramips_mt7621_DEVICE_xiaomi_redmi-router-ac2100=y
-           EOF
 
-        #  cat >> .config <<EOF
-        #  CONFIG_TARGET_IMAGES_GZIP=y
-        #  CONFIG_KERNEL_BUILD_USER="OpenWrt-CI"
-        #  CONFIG_KERNEL_BUILD_DOMAIN="Azure"
-        #  EOF
+          cat >> .config <<EOF
+          CONFIG_TARGET_IMAGES_GZIP=y
+          CONFIG_KERNEL_BUILD_USER="OpenWrt-CI"
+          CONFIG_KERNEL_BUILD_DOMAIN="Azure"
+          EOF
 
           #
           # ===============================================================
           # 
+
           sed -i 's/^[ \t]*//g' ./.config
           make defconfig
 
